@@ -1,9 +1,9 @@
 <svg width="1280" height="640" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"   style="stop-color:#E8F5E9"/>
-      <stop offset="48%"  style="stop-color:#F8F4FF"/>
-      <stop offset="100%" style="stop-color:#E3F2FD"/>
+      <stop offset="0%"   style="stop-color:#f2fff9"/>
+      <stop offset="48%"  style="stop-color:#fffaf0"/>
+      <stop offset="100%" style="stop-color:#f7f4ff"/>
     </linearGradient>
     <filter id="shadow" x="-25%" y="-25%" width="150%" height="150%">
       <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="rgba(0,0,0,0.14)"/>
@@ -42,7 +42,7 @@
   <text x="640" y="268" font-size="28" font-weight="700" text-anchor="middle" fill="#388E3C" font-family="'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif">원소 친구들</text>
 
   <!-- Tagline -->
-  <text x="640" y="310" font-size="18" text-anchor="middle" fill="#607D8B">Combine elements  ·  Discover compounds  ·  Learn chemistry!</text>
+  <text x="640" y="310" font-size="18" text-anchor="middle" fill="#607D8B">Drag elements  ·  Spark reactions  ·  Collect badges!</text>
 
   <!-- Dotted divider -->
   <circle cx="536" cy="340" r="3" fill="#C8E6C9"/>
@@ -58,7 +58,7 @@
   <circle cx="744" cy="340" r="3" fill="#C8E6C9"/>
 
   <!-- Feature pills -->
-  <rect x="298" y="360" rx="19" ry="19" width="148" height="37" fill="#E8F5E9" stroke="#66BB6A" stroke-width="1.5" filter="url(#cardshadow)"/>
+  <rect x="298" y="360" rx="19" ry="19" width="148" height="37" fill="#f2fff9" stroke="#66BB6A" stroke-width="1.5" filter="url(#cardshadow)"/>
   <text x="372" y="385" font-size="16" text-anchor="middle" fill="#2E7D32">🧪 Lab Mode</text>
 
   <rect x="460" y="360" rx="19" ry="19" width="155" height="37" fill="#F3E5F5" stroke="#AB47BC" stroke-width="1.5" filter="url(#cardshadow)"/>
@@ -67,7 +67,7 @@
   <rect x="629" y="360" rx="19" ry="19" width="138" height="37" fill="#FFF8E1" stroke="#FFB300" stroke-width="1.5" filter="url(#cardshadow)"/>
   <text x="698" y="385" font-size="16" text-anchor="middle" fill="#E65100">🏆 Badges</text>
 
-  <rect x="781" y="360" rx="19" ry="19" width="148" height="37" fill="#E3F2FD" stroke="#42A5F5" stroke-width="1.5" filter="url(#cardshadow)"/>
+  <rect x="781" y="360" rx="19" ry="19" width="148" height="37" fill="#f7f4ff" stroke="#42A5F5" stroke-width="1.5" filter="url(#cardshadow)"/>
   <text x="855" y="385" font-size="16" text-anchor="middle" fill="#0D47A1">🔊 Sound FX</text>
 
   <!-- ═══ ELEMENT CIRCLES ═══ -->

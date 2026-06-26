@@ -9,591 +9,294 @@
   <meta property="og:description" content="귀여운 원소 친구들과 함께 배우는 어린이 화학 앱" />
   <meta property="og:image" content="assets/banner.svg" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; }
+    * { margin: 0; }
 
     :root {
-      --mint:      #66BB6A;
-      --mint-dark: #2E7D32;
-      --mint-pale: #E8F5E9;
-      --peach:     #FFA726;
-      --purple:    #CE93D8;
-      --purple-pale:#F3E5F5;
-      --blue:      #90CAF9;
-      --blue-pale: #E3F2FD;
-      --cream:     #FCFDF9;
-      --gray:      #607D8B;
-      --white:     #ffffff;
-
-      --color-H:  #90CAF9;
-      --color-O:  #F48FB1;
-      --color-C:  #B0BEC5;
-      --color-Na: #FFE082;
-      --color-Cl: #A5D6A7;
-      --color-He: #CE93D8;
-      --color-N:  #80DEEA;
-      --color-Fe: #FFAB91;
-
-      --radius-lg: 24px;
-      --radius-md: 16px;
-      --radius-sm: 10px;
-      --shadow: 0 4px 24px rgba(0,0,0,0.08);
-      --shadow-hover: 0 8px 36px rgba(0,0,0,0.14);
+      color-scheme: light;
+      --ink: #13251f;
+      --muted: #64766f;
+      --surface: rgba(255,255,255,0.78);
+      --surface-strong: #ffffff;
+      --line: rgba(34, 79, 67, 0.12);
+      --mint: #4fce8a;
+      --mint-dark: #08724f;
+      --aqua: #61d7ff;
+      --violet: #9c7cff;
+      --pink: #ff78ad;
+      --sun: #ffd166;
+      --cream: #fffaf0;
+      --shadow: 0 24px 70px rgba(25, 78, 67, 0.16);
+      --shadow-soft: 0 14px 36px rgba(25, 78, 67, 0.10);
+      --radius-xl: 36px;
+      --radius-lg: 26px;
+      --radius-md: 18px;
+      --max: 1180px;
     }
 
     html { scroll-behavior: smooth; }
-
     body {
-      font-family: 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', Arial, sans-serif;
-      background: var(--cream);
-      color: #263238;
-      line-height: 1.65;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(97,215,255,0.34), transparent 28rem),
+        radial-gradient(circle at 88% 2%, rgba(255,120,173,0.22), transparent 25rem),
+        linear-gradient(180deg, #f2fff9 0%, #fffaf0 43%, #f7f4ff 100%);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-
-    /* ─── NAV ─── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(252,253,249,0.90);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #E8F5E9;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5%;
-      height: 60px;
-    }
-    .nav-logo { font-size: 1.1rem; font-weight: 800; color: var(--mint-dark); text-decoration: none; }
-    .nav-links { display: flex; gap: 28px; list-style: none; }
-    .nav-links a { color: var(--gray); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--mint-dark); }
-
-    /* ─── HERO ─── */
-    .hero {
-      min-height: 92vh;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center;
-      padding: 80px 5% 60px;
-      background: linear-gradient(135deg, #E8F5E9 0%, #F8F4FF 50%, #E3F2FD 100%);
-      position: relative; overflow: hidden;
-    }
-    .hero::before {
+    body::before {
       content: '';
-      position: absolute; top: -80px; left: -80px;
-      width: 320px; height: 320px;
-      background: radial-gradient(circle, #A5D6A780 0%, transparent 70%);
+      position: fixed;
+      inset: 0;
       pointer-events: none;
+      opacity: 0.42;
+      background-image:
+        linear-gradient(rgba(8,114,79,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(8,114,79,0.08) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, #000, transparent 70%);
     }
-    .hero::after {
-      content: '';
-      position: absolute; bottom: -60px; right: -60px;
-      width: 280px; height: 280px;
-      background: radial-gradient(circle, #CE93D870 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-icon {
-      font-size: 5rem; margin-bottom: 20px;
-      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.12));
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50%      { transform: translateY(-12px); }
-    }
-    .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 4.5rem);
-      font-weight: 900;
-      color: var(--mint-dark);
-      letter-spacing: -1.5px;
-      margin-bottom: 10px;
-    }
-    .hero .subtitle {
-      font-size: clamp(1.1rem, 3vw, 1.6rem);
-      font-weight: 700;
-      color: var(--mint);
-      margin-bottom: 18px;
-    }
-    .hero .tagline {
-      font-size: clamp(0.95rem, 2vw, 1.15rem);
-      color: var(--gray);
-      max-width: 520px;
-      margin: 0 auto 40px;
-    }
-    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 28px; border-radius: 50px;
-      font-size: 1rem; font-weight: 700; text-decoration: none;
-      transition: all 0.22s;
-      box-shadow: var(--shadow);
-    }
-    .btn-primary { background: var(--mint-dark); color: white; }
-    .btn-primary:hover { background: #1B5E20; transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-    .btn-outline { background: white; color: var(--mint-dark); border: 2px solid var(--mint-dark); }
-    .btn-outline:hover { background: var(--mint-pale); transform: translateY(-2px); }
 
-    /* ─── SECTIONS ─── */
-    section { padding: 90px 5%; }
-    .section-label {
-      font-size: 0.8rem; font-weight: 700; letter-spacing: 2px;
-      color: var(--mint); text-transform: uppercase; margin-bottom: 10px;
-    }
-    h2 {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 800; color: #1B5E20;
-      margin-bottom: 14px;
-    }
-    .section-desc { color: var(--gray); font-size: 1.05rem; max-width: 560px; margin-bottom: 50px; }
+    a { color: inherit; }
+    .container { width: min(100% - 40px, var(--max)); margin-inline: auto; }
 
-    /* ─── ELEMENTS GRID ─── */
-    #elements { background: white; }
-    .elements-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    .nav {
+      position: sticky;
+      top: 14px;
+      z-index: 10;
+      width: min(100% - 32px, var(--max));
+      margin: 14px auto 0;
+      padding: 12px 14px 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 20px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(20px) saturate(1.4);
+      box-shadow: 0 14px 36px rgba(25, 78, 67, 0.10);
     }
-    .element-card {
-      border-radius: var(--radius-md);
-      padding: 28px 16px 20px;
-      text-align: center;
-      cursor: default;
-      transition: transform 0.22s, box-shadow 0.22s;
-      box-shadow: var(--shadow);
-      position: relative; overflow: hidden;
-    }
-    .element-card:hover { transform: translateY(-6px) scale(1.03); box-shadow: var(--shadow-hover); }
-    .element-card::after {
-      content: '';
-      position: absolute; inset: 0;
-      border-radius: var(--radius-md);
-      border: 2px solid rgba(255,255,255,0.7);
-      pointer-events: none;
-    }
-    .el-number { font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.75); margin-bottom: 4px; }
-    .el-symbol { font-size: 2.4rem; font-weight: 900; color: white; line-height: 1; }
-    .el-name-ko { font-size: 0.82rem; font-weight: 700; color: rgba(255,255,255,0.9); margin-top: 8px; }
-    .el-name-en { font-size: 0.72rem; color: rgba(255,255,255,0.75); }
-    .el-face { font-size: 0.75rem; color: rgba(255,255,255,0.85); margin-top: 8px; font-family: monospace; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 900; text-decoration: none; letter-spacing: -0.02em; }
+    .brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 15px; background: linear-gradient(135deg, var(--mint), var(--aqua)); box-shadow: inset 0 -8px 16px rgba(0,0,0,0.08); }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; padding: 0; }
+    .nav-links a { display: inline-flex; padding: 10px 13px; border-radius: 999px; text-decoration: none; color: var(--muted); font-size: 0.92rem; font-weight: 800; transition: 180ms ease; }
+    .nav-links a:hover { color: var(--mint-dark); background: rgba(79,206,138,0.12); }
+    .nav-cta { color: white !important; background: #13251f !important; }
 
-    /* ─── COMPOUNDS ─── */
-    #compounds { background: linear-gradient(160deg, #F1F8E9 0%, #FCFDF9 100%); }
-    .compounds-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .compound-card {
-      background: white;
-      border-radius: var(--radius-md);
-      padding: 24px 20px;
-      box-shadow: var(--shadow);
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: flex; flex-direction: column; gap: 10px;
-    }
-    .compound-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
-    .compound-emoji { font-size: 2.2rem; }
-    .compound-formula { font-size: 1.3rem; font-weight: 800; color: var(--mint-dark); }
-    .compound-name { font-size: 0.9rem; font-weight: 700; color: #37474F; }
-    .compound-recipe {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: var(--mint-pale); border-radius: 50px;
-      padding: 4px 12px; font-size: 0.8rem; font-weight: 700;
-      color: var(--mint-dark); align-self: flex-start;
-    }
-    .compound-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.55; }
+    .hero { position: relative; padding: 92px 0 76px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr); gap: 54px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; width: fit-content; padding: 8px 13px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,0.7); color: var(--mint-dark); font-size: 0.86rem; font-weight: 900; box-shadow: var(--shadow-soft); }
+    h1 { margin-top: 22px; max-width: 760px; font-size: clamp(3.15rem, 8vw, 7.6rem); line-height: 0.9; letter-spacing: -0.075em; font-weight: 1000; }
+    .gradient-text { background: linear-gradient(100deg, #08724f 0%, #17a36b 38%, #1979a5 72%, #7a54ff 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-copy { margin-top: 24px; max-width: 650px; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.32rem); }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 54px; padding: 0 22px; border-radius: 999px; text-decoration: none; font-weight: 950; transition: 180ms ease; box-shadow: var(--shadow-soft); }
+    .btn-primary { color: white; background: linear-gradient(135deg, #13251f, #08724f); }
+    .btn-secondary { color: var(--mint-dark); background: rgba(255,255,255,0.82); border: 1px solid var(--line); }
+    .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .metric-row { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin-top: 38px; max-width: 590px; }
+    .metric { padding: 17px; border: 1px solid var(--line); border-radius: 22px; background: rgba(255,255,255,0.58); backdrop-filter: blur(16px); }
+    .metric strong { display: block; font-size: 1.6rem; line-height: 1; color: var(--mint-dark); }
+    .metric span { display: block; margin-top: 7px; color: var(--muted); font-size: 0.84rem; font-weight: 800; }
 
-    /* ─── FEATURES ─── */
-    #features { background: white; }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 24px;
-    }
-    .feature-card {
-      background: var(--cream);
-      border-radius: var(--radius-lg);
-      padding: 32px 24px;
-      box-shadow: var(--shadow);
-      transition: transform 0.2s;
-    }
-    .feature-card:hover { transform: translateY(-4px); }
-    .feature-icon { font-size: 2.5rem; margin-bottom: 16px; }
-    .feature-title { font-size: 1.1rem; font-weight: 800; color: #1B5E20; margin-bottom: 10px; }
-    .feature-desc { font-size: 0.88rem; color: var(--gray); }
+    .lab-card { position: relative; min-height: 590px; border: 1px solid rgba(255,255,255,0.78); border-radius: 46px; background: linear-gradient(150deg, rgba(255,255,255,0.86), rgba(255,255,255,0.44)); box-shadow: var(--shadow); overflow: hidden; isolation: isolate; }
+    .lab-card::before { content: ''; position: absolute; inset: 20px; border: 1px dashed rgba(8,114,79,0.18); border-radius: 34px; }
+    .orb { position: absolute; display: grid; place-items: center; width: 118px; height: 118px; border-radius: 36px; color: white; font-weight: 1000; box-shadow: 0 22px 42px rgba(44,84,77,0.22), inset 0 -12px 22px rgba(0,0,0,0.13); transform: rotate(var(--r)); animation: bob 5s ease-in-out infinite; }
+    .orb small { position: absolute; bottom: 17px; font-size: 0.78rem; opacity: 0.88; }
+    .orb b { font-size: 2.35rem; line-height: 1; }
+    .orb:nth-child(1) { left: 44px; top: 62px; --r: -10deg; background: linear-gradient(135deg, #61d7ff, #5aa7ff); }
+    .orb:nth-child(2) { right: 48px; top: 100px; --r: 12deg; background: linear-gradient(135deg, #ff78ad, #ff9a73); animation-delay: -1s; }
+    .orb:nth-child(3) { left: 70px; bottom: 90px; --r: 9deg; background: linear-gradient(135deg, #ffd166, #ff9f1c); color: #5c3d00; animation-delay: -1.8s; }
+    .orb:nth-child(4) { right: 70px; bottom: 72px; --r: -8deg; background: linear-gradient(135deg, #9c7cff, #ce7bff); animation-delay: -2.5s; }
+    @keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -16px; } }
+    .reaction { position: absolute; left: 50%; top: 51%; transform: translate(-50%, -50%); width: 240px; padding: 22px; border-radius: 32px; background: #13251f; color: white; text-align: center; box-shadow: 0 26px 50px rgba(19,37,31,0.32); }
+    .reaction .formula { font-size: 3.1rem; font-weight: 1000; letter-spacing: -0.06em; }
+    .reaction p { color: rgba(255,255,255,0.74); font-weight: 800; font-size: 0.92rem; }
+    .spark { position: absolute; width: 13px; height: 13px; border-radius: 999px; background: var(--sun); box-shadow: 0 0 22px var(--sun); }
+    .spark.one { left: 45%; top: 22%; } .spark.two { right: 22%; top: 48%; } .spark.three { left: 27%; bottom: 34%; }
 
-    /* ─── BADGES ─── */
-    #badges { background: linear-gradient(160deg, var(--purple-pale) 0%, var(--blue-pale) 100%); }
-    .badges-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
-    }
-    .badge-card {
-      background: white;
-      border-radius: var(--radius-md);
-      padding: 20px;
-      box-shadow: var(--shadow);
-      display: flex; align-items: flex-start; gap: 14px;
-    }
-    .badge-emoji { font-size: 2rem; flex-shrink: 0; }
-    .badge-info {}
-    .badge-title { font-size: 0.92rem; font-weight: 800; color: #37474F; margin-bottom: 4px; }
-    .badge-req { font-size: 0.78rem; color: var(--gray); }
+    section { padding: 82px 0; }
+    .section-head { display: flex; justify-content: space-between; gap: 28px; align-items: end; margin-bottom: 32px; }
+    .section-head h2 { max-width: 680px; font-size: clamp(2rem, 4.5vw, 4.25rem); line-height: 0.96; letter-spacing: -0.055em; }
+    .section-head p { max-width: 420px; color: var(--muted); font-weight: 700; }
+    .kicker { color: var(--mint-dark); font-size: 0.83rem; font-weight: 1000; letter-spacing: 0.16em; text-transform: uppercase; }
 
-    /* ─── TECH ─── */
-    #tech { background: white; }
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 16px;
-    }
-    .tech-chip {
-      background: var(--mint-pale);
-      border: 1.5px solid #C8E6C9;
-      border-radius: var(--radius-sm);
-      padding: 16px 18px;
-      font-size: 0.88rem; font-weight: 700;
-      color: var(--mint-dark);
-      display: flex; align-items: center; gap: 10px;
-    }
-    .tech-chip span { font-size: 1.4rem; }
+    .cards { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
+    .card { position: relative; padding: 24px; min-height: 235px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: rgba(255,255,255,0.72); box-shadow: var(--shadow-soft); overflow: hidden; transition: 180ms ease; }
+    .card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .card::after { content: ''; position: absolute; width: 160px; height: 160px; right: -58px; bottom: -68px; border-radius: 50%; background: var(--accent, rgba(79,206,138,0.18)); opacity: 0.7; }
+    .card-icon { font-size: 2.4rem; }
+    .card h3 { margin-top: 18px; font-size: 1.18rem; letter-spacing: -0.02em; }
+    .card p { position: relative; z-index: 1; margin-top: 10px; color: var(--muted); font-size: 0.94rem; font-weight: 650; }
 
-    /* ─── CTA ─── */
-    #cta {
-      text-align: center;
-      background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 60%, #388E3C 100%);
-      color: white;
-      padding: 100px 5%;
-    }
-    #cta h2 { color: white; margin-bottom: 14px; }
-    #cta .section-label { color: #A5D6A7; }
-    #cta .tagline { color: rgba(255,255,255,0.8); margin: 0 auto 40px; }
-    #cta .btn-white { background: white; color: var(--mint-dark); }
-    #cta .btn-white:hover { background: #f1fdf3; }
-    #cta .btn-ghost { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.5); }
-    #cta .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+    .showcase { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 18px; align-items: stretch; }
+    .panel { border: 1px solid var(--line); border-radius: var(--radius-xl); background: rgba(255,255,255,0.72); box-shadow: var(--shadow-soft); overflow: hidden; }
+    .phone { padding: 22px; }
+    .phone-screen { min-height: 520px; padding: 20px; border-radius: 30px; background: linear-gradient(180deg, #13251f, #0d3a31); color: white; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.10); }
+    .status { display: flex; justify-content: space-between; color: rgba(255,255,255,0.68); font-size: 0.8rem; font-weight: 900; }
+    .bubble-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 22px; }
+    .bubble { padding: 18px; min-height: 126px; border-radius: 25px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.12); }
+    .bubble strong { font-size: 2rem; }
+    .bubble span { display: block; color: rgba(255,255,255,0.7); font-weight: 800; }
+    .wide { grid-column: 1 / -1; background: linear-gradient(135deg, rgba(79,206,138,0.28), rgba(97,215,255,0.18)); }
+    .recipe-list { display: grid; gap: 12px; padding: 22px; }
+    .recipe { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px; border-radius: 22px; background: rgba(255,255,255,0.66); border: 1px solid var(--line); }
+    .recipe b { font-size: 1.12rem; }
+    .recipe span { color: var(--muted); font-weight: 800; }
+    .pill { padding: 8px 12px; border-radius: 999px; background: rgba(79,206,138,0.16); color: var(--mint-dark) !important; font-size: 0.82rem; white-space: nowrap; }
 
-    /* ─── FOOTER ─── */
-    footer {
-      background: #1B5E20;
-      color: rgba(255,255,255,0.65);
-      text-align: center;
-      padding: 28px 5%;
-      font-size: 0.85rem;
-    }
-    footer a { color: #A5D6A7; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+    .elements { display: grid; grid-template-columns: repeat(8, 1fr); gap: 12px; }
+    .element { min-height: 128px; padding: 14px; border-radius: 24px; color: white; box-shadow: var(--shadow-soft); }
+    .element .num { opacity: 0.72; font-size: 0.76rem; font-weight: 900; }
+    .element .sym { margin-top: 7px; font-size: 2.05rem; font-weight: 1000; line-height: 1; }
+    .element .name { margin-top: 8px; font-size: 0.83rem; font-weight: 900; opacity: 0.92; }
+    .element .face { font-size: 0.72rem; opacity: 0.84; }
 
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 640px) {
-      nav { padding: 0 4%; }
+    .cta { margin: 70px 0 0; padding: 54px; border-radius: 42px; background: linear-gradient(135deg, #13251f, #08724f 58%, #1db878); color: white; box-shadow: var(--shadow); display: flex; justify-content: space-between; gap: 32px; align-items: center; }
+    .cta h2 { font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1; letter-spacing: -0.055em; }
+    .cta p { margin-top: 12px; color: rgba(255,255,255,0.74); font-weight: 750; max-width: 560px; }
+    .cta .btn { background: white; color: #08724f; flex: none; }
+
+    footer { padding: 34px 0 50px; color: var(--muted); font-weight: 750; text-align: center; }
+    footer a { color: var(--mint-dark); text-decoration: none; font-weight: 950; }
+
+    @media (max-width: 920px) {
       .nav-links { display: none; }
-      .elements-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-grid, .showcase { grid-template-columns: 1fr; }
+      .lab-card { min-height: 520px; }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .elements { grid-template-columns: repeat(4, 1fr); }
+      .section-head, .cta { display: block; }
+      .cta .btn { margin-top: 24px; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      .hero { padding-top: 58px; }
+      .metric-row, .cards, .elements { grid-template-columns: 1fr; }
+      .lab-card { min-height: 500px; border-radius: 34px; }
+      .orb { width: 94px; height: 94px; border-radius: 28px; }
+      .orb b { font-size: 1.8rem; }
+      .reaction { width: 205px; }
+      .cta { padding: 34px 24px; border-radius: 30px; }
     }
   </style>
 </head>
 <body>
+  <nav class="nav" aria-label="주요 메뉴">
+    <a class="brand" href="#hero"><span class="brand-mark">⚗️</span><span>Element Friends</span></a>
+    <ul class="nav-links">
+      <li><a href="#features">기능</a></li>
+      <li><a href="#lab">실험실</a></li>
+      <li><a href="#elements">원소</a></li>
+      <li><a href="https://github.com/jeiel85/element-friends">GitHub</a></li>
+      <li><a class="nav-cta" href="https://github.com/jeiel85/element-friends/archive/refs/heads/main.zip">다운로드</a></li>
+    </ul>
+  </nav>
 
-<!-- ── Navigation ── -->
-<nav>
-  <a class="nav-logo" href="#hero">⚗️ Element Friends</a>
-  <ul class="nav-links">
-    <li><a href="#elements">원소</a></li>
-    <li><a href="#compounds">화합물</a></li>
-    <li><a href="#features">기능</a></li>
-    <li><a href="#badges">배지</a></li>
-    <li><a href="#tech">기술</a></li>
-    <li><a href="https://github.com/jeiel85/element-friends">GitHub</a></li>
-  </ul>
-</nav>
+  <main>
+    <header class="hero" id="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">✨ 어린이를 위한 인터랙티브 화학 놀이터</div>
+          <h1><span class="gradient-text">원소 친구들과</span><br />실험이 놀이가 되는 순간</h1>
+          <p class="hero-copy">드래그로 원소를 합치고, 반짝이는 화합물을 발견하고, 매일 퀴즈와 배지로 과학 자신감을 키우는 Android 학습 앱입니다.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://github.com/jeiel85/element-friends">⭐ GitHub에서 보기</a>
+            <a class="btn btn-secondary" href="#lab">🧪 데모 둘러보기</a>
+          </div>
+          <div class="metric-row" aria-label="앱 핵심 숫자">
+            <div class="metric"><strong>8</strong><span>캐릭터 원소</span></div>
+            <div class="metric"><strong>7</strong><span>화합물 레시피</span></div>
+            <div class="metric"><strong>8</strong><span>성취 배지</span></div>
+          </div>
+        </div>
 
-<!-- ── Hero ── -->
-<section class="hero" id="hero">
-  <div class="hero-icon">⚗️</div>
-  <h1>Element Friends</h1>
-  <p class="subtitle">원소 친구들</p>
-  <p class="tagline">귀여운 원소 캐릭터와 함께 드래그로 화합물을 합성하고, 퀴즈를 풀며 배지를 모으세요!</p>
-  <div class="hero-btns">
-    <a class="btn btn-primary" href="https://github.com/jeiel85/element-friends">
-      ⭐ GitHub에서 보기
-    </a>
-    <a class="btn btn-outline" href="#elements">
-      🧪 원소 탐험하기
-    </a>
-  </div>
-</section>
-
-<!-- ── Elements ── -->
-<section id="elements">
-  <p class="section-label">원소 캐릭터</p>
-  <h2>8가지 귀여운 원소 친구들</h2>
-  <p class="section-desc">각 원소는 고유한 파스텔 색상과 귀여운 표정을 가진 캐릭터입니다.</p>
-
-  <div class="elements-grid">
-    <div class="element-card" style="background:var(--color-H)">
-      <div class="el-number">원자번호 1</div>
-      <div class="el-symbol">H</div>
-      <div class="el-name-ko">수소</div>
-      <div class="el-name-en">Hydrogen</div>
-      <div class="el-face">U◡U ♥</div>
-    </div>
-    <div class="element-card" style="background:var(--color-O)">
-      <div class="el-number">원자번호 8</div>
-      <div class="el-symbol">O</div>
-      <div class="el-name-ko">산소</div>
-      <div class="el-name-en">Oxygen</div>
-      <div class="el-face">●ˇ∀ˇ●</div>
-    </div>
-    <div class="element-card" style="background:var(--color-C)">
-      <div class="el-number">원자번호 6</div>
-      <div class="el-symbol">C</div>
-      <div class="el-name-ko">탄소</div>
-      <div class="el-name-en">Carbon</div>
-      <div class="el-face">(=ㅅ=)💤</div>
-    </div>
-    <div class="element-card" style="background:var(--color-Na);--txt:rgba(100,78,0,0.9)">
-      <div class="el-number" style="color:rgba(100,78,0,0.7)">원자번호 11</div>
-      <div class="el-symbol" style="color:#7B6000">Na</div>
-      <div class="el-name-ko" style="color:rgba(100,78,0,0.9)">나트륨</div>
-      <div class="el-name-en" style="color:rgba(100,78,0,0.7)">Sodium</div>
-      <div class="el-face" style="color:rgba(100,78,0,0.8)">★_★!</div>
-    </div>
-    <div class="element-card" style="background:var(--color-Cl)">
-      <div class="el-number">원자번호 17</div>
-      <div class="el-symbol">Cl</div>
-      <div class="el-name-ko">염소</div>
-      <div class="el-name-en">Chlorine</div>
-      <div class="el-face">q(≧▽≦q)</div>
-    </div>
-    <div class="element-card" style="background:var(--color-He)">
-      <div class="el-number">원자번호 2</div>
-      <div class="el-symbol">He</div>
-      <div class="el-name-ko">헬륨</div>
-      <div class="el-name-en">Helium</div>
-      <div class="el-face">🎈(^▽^)</div>
-    </div>
-    <div class="element-card" style="background:var(--color-N)">
-      <div class="el-number">원자번호 7</div>
-      <div class="el-symbol">N</div>
-      <div class="el-name-ko">질소</div>
-      <div class="el-name-en">Nitrogen</div>
-      <div class="el-face">(✿◡_◡)</div>
-    </div>
-    <div class="element-card" style="background:var(--color-Fe)">
-      <div class="el-number">원자번호 26</div>
-      <div class="el-symbol">Fe</div>
-      <div class="el-name-ko">철</div>
-      <div class="el-name-en">Iron</div>
-      <div class="el-face">🤖[O_O]</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Compounds ── -->
-<section id="compounds">
-  <p class="section-label">화합물 합성</p>
-  <h2>7가지 화합물 레시피</h2>
-  <p class="section-desc">두 원소를 드래그해서 합치면 실제 화학 반응이 일어납니다.</p>
-
-  <div class="compounds-grid">
-    <div class="compound-card">
-      <div class="compound-emoji">💧</div>
-      <div class="compound-formula">H₂O</div>
-      <div class="compound-name">물 (Water)</div>
-      <div class="compound-recipe">H + O</div>
-      <div class="compound-desc">생명에게 가장 소중하고 깨끗한 물이에요! 수소와 산소가 합체해서 투명한 방울이 되었답니다.</div>
-    </div>
-    <div class="compound-card">
-      <div class="compound-emoji">🫧</div>
-      <div class="compound-formula">CO₂</div>
-      <div class="compound-name">이산화탄소 (Carbon Dioxide)</div>
-      <div class="compound-recipe">C + O</div>
-      <div class="compound-desc">식물들의 맛있는 밥이자, 우리가 숨을 내쉴 때 나가는 뽀글뽀글 거품 가스예요.</div>
-    </div>
-    <div class="compound-card">
-      <div class="compound-emoji">🧂</div>
-      <div class="compound-formula">NaCl</div>
-      <div class="compound-name">소금 (Salt)</div>
-      <div class="compound-recipe">Na + Cl</div>
-      <div class="compound-desc">음식을 아주 맛있게 만들어 주는 하얗고 보배로운 소금이에요! 바다에 아주 많답니다.</div>
-    </div>
-    <div class="compound-card">
-      <div class="compound-emoji">🧪</div>
-      <div class="compound-formula">HCl</div>
-      <div class="compound-name">염산 (Hydrochloric Acid)</div>
-      <div class="compound-recipe">H + Cl</div>
-      <div class="compound-desc">우리 위장 속에서 피자나 밥을 골고루 소화시키는 용감한 액체예요!</div>
-    </div>
-    <div class="compound-card">
-      <div class="compound-emoji">💨</div>
-      <div class="compound-formula">NH₃</div>
-      <div class="compound-name">암모니아 (Ammonia)</div>
-      <div class="compound-recipe">H + N</div>
-      <div class="compound-desc">약간 찌릿한 냄새를 풍기지만, 농부 아저씨의 밭을 기름지게 자라게 돕는 영양소랍니다.</div>
-    </div>
-    <div class="compound-card">
-      <div class="compound-emoji">🧱</div>
-      <div class="compound-formula">Fe₂O₃</div>
-      <div class="compound-name">녹 (Rust)</div>
-      <div class="compound-recipe">Fe + O</div>
-      <div class="compound-desc">단단한 철이 산소 공기랑 친구가 되면서 오렌지색으로 변신하는 귀여운 결합체예요.</div>
-    </div>
-    <div class="compound-card">
-      <div class="compound-emoji">🐮</div>
-      <div class="compound-formula">CH₄</div>
-      <div class="compound-name">메탄가스 (Methane)</div>
-      <div class="compound-recipe">C + H</div>
-      <div class="compound-desc">젖소들이 뿡~ 하고 뀌는 방귀나 주방 가스렌지에 들어 있어 깨끗한 열에너지를 만들어 줘요.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Features ── -->
-<section id="features">
-  <p class="section-label">주요 기능</p>
-  <h2>즐겁게 배우는 화학</h2>
-  <p class="section-desc">드래그 합성부터 일일 퀴즈까지, 모든 기능이 어린이를 위해 설계되었습니다.</p>
-
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon">🧪</div>
-      <div class="feature-title">실험실 (Lab Mode)</div>
-      <div class="feature-desc">원소 버블을 드래그해서 합성하면 화합물이 탄생합니다. 콤보를 이어나가 더 많은 점수를 획득하세요!</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">📅</div>
-      <div class="feature-title">일일 퀴즈 (Daily Quiz)</div>
-      <div class="feature-desc">날짜 기반으로 매일 새로운 화학 퀴즈가 출제됩니다. 스트릭을 이어나가 꾸준한 과학자 배지를 받으세요!</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🏆</div>
-      <div class="feature-title">배지 시스템 (Badges)</div>
-      <div class="feature-desc">8가지 성취 배지를 모아 아기 연금술사에서 웅장한 원소 박사까지 성장하세요!</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">📚</div>
-      <div class="feature-title">도감 (Compendium)</div>
-      <div class="feature-desc">발견한 화합물이 자동으로 도감에 기록됩니다. 7종 모두 발견해 컬렉션을 완성하세요!</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🔊</div>
-      <div class="feature-title">사운드 이펙트</div>
-      <div class="feature-desc">합성 성공, 콤보, 퀴즈 정답 시 귀여운 효과음이 재생됩니다. AudioTrack 기반 절차적 사운드!</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🌈</div>
-      <div class="feature-title">파스텔 디자인</div>
-      <div class="feature-desc">Material Design 3 기반의 어린이 친화적 파스텔 테마. 8가지 원소마다 고유한 색상!</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Badges ── -->
-<section id="badges">
-  <p class="section-label">성취 배지</p>
-  <h2>8가지 배지를 모아보세요</h2>
-  <p class="section-desc">학습 목표를 달성할 때마다 배지가 잠금 해제됩니다.</p>
-
-  <div class="badges-grid">
-    <div class="badge-card">
-      <div class="badge-emoji">💧</div>
-      <div class="badge-info">
-        <div class="badge-title">아기 연금술사</div>
-        <div class="badge-req">첫 번째 화합물 합성</div>
+        <div class="lab-card" aria-label="원소 합성 미리보기">
+          <div class="orb"><b>H</b><small>수소 U◡U</small></div>
+          <div class="orb"><b>O</b><small>산소 ●ˇ∀ˇ●</small></div>
+          <div class="orb"><b>Na</b><small>나트륨 ★_★</small></div>
+          <div class="orb"><b>Cl</b><small>염소 q≧▽≦q</small></div>
+          <div class="spark one"></div><div class="spark two"></div><div class="spark three"></div>
+          <div class="reaction"><div class="formula">H₂O</div><p>합성 성공! 물 발견 💧</p></div>
+        </div>
       </div>
-    </div>
-    <div class="badge-card">
-      <div class="badge-emoji">🎓</div>
-      <div class="badge-info">
-        <div class="badge-title">꼬마 학자</div>
-        <div class="badge-req">튜토리얼 완료</div>
-      </div>
-    </div>
-    <div class="badge-card">
-      <div class="badge-emoji">🌱</div>
-      <div class="badge-info">
-        <div class="badge-title">콤보 꿈나무</div>
-        <div class="badge-req">연속 결합 3콤보 달성</div>
-      </div>
-    </div>
-    <div class="badge-card">
-      <div class="badge-emoji">⚡</div>
-      <div class="badge-info">
-        <div class="badge-title">콤보 마스터</div>
-        <div class="badge-req">연속 결합 5콤보 달성</div>
-      </div>
-    </div>
-    <div class="badge-card">
-      <div class="badge-emoji">🐨</div>
-      <div class="badge-info">
-        <div class="badge-title">실험실 대탐험가</div>
-        <div class="badge-req">화합물 3종 발견</div>
-      </div>
-    </div>
-    <div class="badge-card">
-      <div class="badge-emoji">🏆</div>
-      <div class="badge-info">
-        <div class="badge-title">웅장한 원소 박사</div>
-        <div class="badge-req">화합물 7종 ALL 발견</div>
-      </div>
-    </div>
-    <div class="badge-card">
-      <div class="badge-emoji">🎯</div>
-      <div class="badge-info">
-        <div class="badge-title">퀴즈 도전자</div>
-        <div class="badge-req">일일 퀴즈 첫 정답</div>
-      </div>
-    </div>
-    <div class="badge-card">
-      <div class="badge-emoji">📅</div>
-      <div class="badge-info">
-        <div class="badge-title">꾸준한 과학자</div>
-        <div class="badge-req">퀴즈 3회 또는 스트릭 2회</div>
-      </div>
-    </div>
-  </div>
-</section>
+    </header>
 
-<!-- ── Tech ── -->
-<section id="tech">
-  <p class="section-label">기술 스택</p>
-  <h2>최신 Android 기술로 제작</h2>
-  <p class="section-desc">Kotlin + Jetpack Compose + Material 3 기반의 현대적 Android 앱입니다.</p>
+    <section id="features">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">Why it feels better</div><h2>귀엽지만 제대로 학습되는 경험</h2></div>
+          <p>앱의 핵심 재미를 랜딩 페이지에서도 바로 이해할 수 있도록 기능별 스토리와 시각적 리듬을 다시 설계했습니다.</p>
+        </div>
+        <div class="cards">
+          <article class="card" style="--accent:rgba(97,215,255,0.30)"><div class="card-icon">🧪</div><h3>드래그 실험실</h3><p>원소 버블을 직접 움직여 합성하고, 성공 순간에는 점수와 효과음으로 보상을 줍니다.</p></article>
+          <article class="card" style="--accent:rgba(255,209,102,0.36)"><div class="card-icon">🧂</div><h3>화합물 발견</h3><p>H₂O, NaCl, CO₂처럼 생활 속 물질을 레시피로 연결해 기억하기 쉽게 만듭니다.</p></article>
+          <article class="card" style="--accent:rgba(156,124,255,0.27)"><div class="card-icon">📅</div><h3>매일 퀴즈</h3><p>날짜 기반 문제로 매일 다른 도전을 제공하고 꾸준한 학습 습관을 만듭니다.</p></article>
+          <article class="card" style="--accent:rgba(255,120,173,0.28)"><div class="card-icon">🏆</div><h3>배지 컬렉션</h3><p>첫 합성부터 올클리어까지 작은 성공을 배지로 남겨 성취감을 강화합니다.</p></article>
+        </div>
+      </div>
+    </section>
 
-  <div class="tech-grid">
-    <div class="tech-chip"><span>🟣</span> Kotlin 2.0</div>
-    <div class="tech-chip"><span>🎨</span> Jetpack Compose</div>
-    <div class="tech-chip"><span>💎</span> Material Design 3</div>
-    <div class="tech-chip"><span>🏛️</span> MVVM Architecture</div>
-    <div class="tech-chip"><span>🗄️</span> Room Database</div>
-    <div class="tech-chip"><span>🔊</span> AudioTrack</div>
-    <div class="tech-chip"><span>⚡</span> StateFlow</div>
-    <div class="tech-chip"><span>🔧</span> Gradle KTS</div>
-    <div class="tech-chip"><span>📱</span> Min SDK 24</div>
-    <div class="tech-chip"><span>🎯</span> Target SDK 35</div>
-  </div>
-</section>
+    <section id="lab">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">Play preview</div><h2>앱 화면이 상상되는 쇼케이스</h2></div>
+          <p>단순 소개 페이지가 아니라 실제 게임 루프를 한눈에 보여주는 구성으로 바꿨습니다.</p>
+        </div>
+        <div class="showcase">
+          <div class="panel phone">
+            <div class="phone-screen">
+              <div class="status"><span>Lab Mode</span><span>Score 2,450</span></div>
+              <div class="bubble-grid">
+                <div class="bubble"><strong>H</strong><span>수소 · U◡U ♥</span></div>
+                <div class="bubble"><strong>O</strong><span>산소 · ●ˇ∀ˇ●</span></div>
+                <div class="bubble wide"><strong>💧 H₂O</strong><span>수소 + 산소 = 물 발견! 콤보 +1</span></div>
+                <div class="bubble"><strong>Na</strong><span>나트륨 · ★_★!</span></div>
+                <div class="bubble"><strong>Cl</strong><span>염소 · q(≧▽≦q)</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="panel recipe-list">
+            <div class="recipe"><div><b>💧 물 Water</b><br><span>생명에게 가장 소중한 투명한 방울</span></div><span class="pill">H + O</span></div>
+            <div class="recipe"><div><b>🫧 이산화탄소 CO₂</b><br><span>식물이 좋아하고 숨 속에도 숨어 있는 가스</span></div><span class="pill">C + O</span></div>
+            <div class="recipe"><div><b>🧂 소금 Salt</b><br><span>음식을 맛있게 만드는 하얀 결정</span></div><span class="pill">Na + Cl</span></div>
+            <div class="recipe"><div><b>💨 암모니아 NH₃</b><br><span>밭을 기름지게 돕는 찌릿한 친구</span></div><span class="pill">H + N</span></div>
+            <div class="recipe"><div><b>🧱 녹 Rust</b><br><span>철이 산소와 만나 오렌지색으로 변신</span></div><span class="pill">Fe + O</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- ── CTA ── -->
-<section id="cta">
-  <p class="section-label">시작하기</p>
-  <h2>원소 친구들과 함께하세요!</h2>
-  <p class="tagline">소스 코드를 확인하고, 직접 빌드해서 어린이들과 즐겨보세요.</p>
-  <div class="hero-btns">
-    <a class="btn btn-white" href="https://github.com/jeiel85/element-friends">
-      ⭐ GitHub 보기
-    </a>
-    <a class="btn btn-ghost" href="https://github.com/jeiel85/element-friends/archive/refs/heads/main.zip">
-      ⬇️ 소스 다운로드
-    </a>
-  </div>
-</section>
+    <section id="elements">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">Element friends</div><h2>색과 표정으로 기억하는 8가지 원소</h2></div>
+          <p>각 원소의 캐릭터성을 더 크게 보여 주어 아이들이 이름과 기호를 함께 떠올릴 수 있게 했습니다.</p>
+        </div>
+        <div class="elements">
+          <div class="element" style="background:linear-gradient(135deg,#61d7ff,#5aa7ff)"><div class="num">01</div><div class="sym">H</div><div class="name">수소</div><div class="face">U◡U ♥</div></div>
+          <div class="element" style="background:linear-gradient(135deg,#ff78ad,#ff9a73)"><div class="num">08</div><div class="sym">O</div><div class="name">산소</div><div class="face">●ˇ∀ˇ●</div></div>
+          <div class="element" style="background:linear-gradient(135deg,#b0bec5,#78909c)"><div class="num">06</div><div class="sym">C</div><div class="name">탄소</div><div class="face">(=ㅅ=)💤</div></div>
+          <div class="element" style="background:linear-gradient(135deg,#ffd166,#ff9f1c);color:#5c3d00"><div class="num">11</div><div class="sym">Na</div><div class="name">나트륨</div><div class="face">★_★!</div></div>
+          <div class="element" style="background:linear-gradient(135deg,#4fce8a,#23a663)"><div class="num">17</div><div class="sym">Cl</div><div class="name">염소</div><div class="face">q≧▽≦q</div></div>
+          <div class="element" style="background:linear-gradient(135deg,#9c7cff,#ce7bff)"><div class="num">02</div><div class="sym">He</div><div class="name">헬륨</div><div class="face">🎈(^▽^)</div></div>
+          <div class="element" style="background:linear-gradient(135deg,#80deea,#26c6da)"><div class="num">07</div><div class="sym">N</div><div class="name">질소</div><div class="face">(✿◡_◡)</div></div>
+          <div class="element" style="background:linear-gradient(135deg,#ffab91,#ff7043)"><div class="num">26</div><div class="sym">Fe</div><div class="name">철</div><div class="face">🤖[O_O]</div></div>
+        </div>
 
-<!-- ── Footer ── -->
-<footer>
-  <p>
-    Made with 💚 by <a href="https://github.com/jeiel85">jeiel85</a> &nbsp;·&nbsp;
-    <a href="https://github.com/jeiel85/element-friends">GitHub</a> &nbsp;·&nbsp;
-    <a href="https://github.com/jeiel85/element-friends/issues">Issues</a>
-  </p>
-  <p style="margin-top:8px;font-size:0.78rem;opacity:0.7;">원소 친구들과 함께 화학을 배워보세요! ⚗️</p>
-</footer>
+        <div class="cta">
+          <div><h2>이제 원소 친구들과 실험해 볼까요?</h2><p>Kotlin, Jetpack Compose, Material 3로 만든 교육용 Android 앱입니다. 소스 코드를 받아 직접 실행해 보세요.</p></div>
+          <a class="btn" href="https://github.com/jeiel85/element-friends">프로젝트 열기 →</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <footer>
+    <div class="container">Made with 💚 by <a href="https://github.com/jeiel85">jeiel85</a> · <a href="https://github.com/jeiel85/element-friends/issues">Issues</a></div>
+  </footer>
 </body>
 </html>
