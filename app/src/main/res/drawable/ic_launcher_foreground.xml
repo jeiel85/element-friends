@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 1. GLOW SHADOW FOR BEAKER -->
+    <path
+        android:fillColor="#15000000"
+        android:pathData="M31.5,71.5 a6.5,6.5 0 0,0 6.5,6.5 H70 a6.5,6.5 0 0,0 6.5,-6.5 L70,55 h-38 z" />
+
+    <!-- 2. MAGIC LIQUID INSIDE BEAKER -->
+    <!-- Colored with a vibrant pink-magenta gradient -->
+    <path android:pathData="M34.5,68.5 c0,3.3 2.7,6 6,6 H67.5 c3.3,0 6,-2.7 6,-6 L70.5,52 C65,55.5 58,52.5 54,54.5 C50,56.5 43.5,53.5 38,56.5 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="54"
+                android:startY="50"
+                android:endX="54"
+                android:endY="75">
+                <item android:offset="0.0" android:color="#FF8A80" /> <!-- Coral highlight -->
+                <item android:offset="1.0" android:color="#EC407A" /> <!-- TertiaryPink -->
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Liquid shine reflection -->
+    <path
+        android:fillColor="#30FFFFFF"
+        android:pathData="M34.5,68.5 c0,3.3 2.7,6 6,6 h4 c-3.3,0 -6,-2.7 -6,-6 L38,56.5 Z" />
+
+    <!-- 3. BEAKER GLASS CONTOUR (OUTLINE) -->
+    <!-- Pure bold white container outline -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000"
+        android:pathData="M45,34 h18 v12 L75,70 a6.5,6.5 0 0,1 -6.5,6.5 H39.5 a6.5,6.5 0 0,1 -6.5,-6.5 L45,46 Z" />
+
+    <!-- Beaker Rim -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:fillColor="#FFFFFF"
+        android:pathData="M41.5,34 h25" />
+
+    <!-- 4. CUTE MASCOT FACE (Happy elements) -->
+    <!-- Happy eyes -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 46.5,59.2 a 1.8,1.8 0 1,0 0.001,0 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 61.5,59.2 a 1.8,1.8 0 1,0 0.001,0 Z" />
+    <!-- Rosy cheeks -->
+    <path
+        android:fillColor="#40FFCDD2"
+        android:pathData="M 43,63 a 2,2 0 1,0 0.001,0 Z" />
+    <path
+        android:fillColor="#40FFCDD2"
+        android:pathData="M 65,63 a 2,2 0 1,0 0.001,0 Z" />
+    <!-- Big joyful smile -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M51,64.5 Q54,67.5 57,64.5" />
+
+    <!-- 5. RISING CHEMICAL BUBBLES -->
+    <!-- Bubble A -->
+    <path
+        android:fillColor="#90FFFFFF"
+        android:pathData="M 44,22.5 a 3.5,3.5 0 1,0 0.001,0 Z" />
+    <!-- Bubble B -->
+    <path
+        android:fillColor="#E0FFFFFF"
+        android:pathData="M 62,18.5 a 2.5,2.5 0 1,0 0.001,0 Z" />
+    <!-- Bubble C (Big one glowing near top) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 53,8.5 a 4.5,4.5 0 1,0 0.001,0 Z" />
+    <!-- Bubble D (Tiny baby bubble) -->
+    <path
+        android:fillColor="#70FFFFFF"
+        android:pathData="M 50,29.5 a 1.5,1.5 0 1,0 0.001,0 Z" />
+
+    <!-- Beaker glass sheen highlights (gives a 3D glass look) -->
+    <path
+        android:strokeColor="#60FFFFFF"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M70,51.5 L72,55" />
+</vector>

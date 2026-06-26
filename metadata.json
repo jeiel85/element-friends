@@ -1,0 +1,6 @@
+{
+  "name": "원소 친구들",
+  "description": "아기자기한 파스텔 원소들을 합쳐서 새로운 화학식을 만드는 직관적인 어린이용 퍼즐 게임입니다. 결합 효과와 매칭 도감, 그리고 클라우드 자가 동기화가 제공됩니다.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
