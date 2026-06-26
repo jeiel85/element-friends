@@ -1,4 +1,4 @@
-<div align="center">
+<div align="center" markdown="1">
 
 <img src="docs/assets/banner.svg" width="100%" alt="Element Friends Banner"/>
 
