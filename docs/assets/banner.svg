@@ -1,0 +1,152 @@
+<svg width="1280" height="640" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   style="stop-color:#E8F5E9"/>
+      <stop offset="48%"  style="stop-color:#F8F4FF"/>
+      <stop offset="100%" style="stop-color:#E3F2FD"/>
+    </linearGradient>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="rgba(0,0,0,0.14)"/>
+    </filter>
+    <filter id="cardshadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="rgba(0,0,0,0.10)"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="640" fill="url(#bg)"/>
+
+  <!-- Decorative blobs -->
+  <ellipse cx="110"  cy="70"  rx="200" ry="130" fill="#A5D6A7" opacity="0.13"/>
+  <ellipse cx="1180" cy="75"  rx="175" ry="120" fill="#CE93D8" opacity="0.13"/>
+  <ellipse cx="640"  cy="620" rx="500" ry="70"  fill="#90CAF9" opacity="0.10"/>
+
+  <!-- Decorative small dots -->
+  <circle cx="28"   cy="290" r="14" fill="#66BB6A" opacity="0.22"/>
+  <circle cx="50"   cy="335" r="8"  fill="#A5D6A7" opacity="0.28"/>
+  <circle cx="1255" cy="275" r="14" fill="#CE93D8" opacity="0.22"/>
+  <circle cx="1232" cy="320" r="8"  fill="#F48FB1" opacity="0.28"/>
+  <circle cx="195"  cy="18"  r="11" fill="#90CAF9" opacity="0.30"/>
+  <circle cx="1088" cy="22"  r="9"  fill="#FFE082" opacity="0.32"/>
+  <circle cx="400"  cy="12"  r="6"  fill="#F48FB1" opacity="0.25"/>
+  <circle cx="870"  cy="15"  r="7"  fill="#A5D6A7" opacity="0.25"/>
+
+  <!-- App icon circle -->
+  <circle cx="640" cy="112" r="52" fill="white" opacity="0.96" filter="url(#shadow)"/>
+  <text x="640" y="135" font-size="48" text-anchor="middle" font-family="Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji, sans-serif">⚗️</text>
+
+  <!-- Main title -->
+  <text x="640" y="222" font-size="66" font-weight="800" text-anchor="middle" fill="#1B5E20" letter-spacing="-2">Element Friends</text>
+
+  <!-- Korean subtitle -->
+  <text x="640" y="268" font-size="28" font-weight="700" text-anchor="middle" fill="#388E3C" font-family="'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif">원소 친구들</text>
+
+  <!-- Tagline -->
+  <text x="640" y="310" font-size="18" text-anchor="middle" fill="#607D8B">Combine elements  ·  Discover compounds  ·  Learn chemistry!</text>
+
+  <!-- Dotted divider -->
+  <circle cx="536" cy="340" r="3" fill="#C8E6C9"/>
+  <circle cx="556" cy="340" r="3" fill="#C8E6C9"/>
+  <circle cx="576" cy="340" r="3" fill="#C8E6C9"/>
+  <circle cx="596" cy="340" r="3" fill="#C8E6C9"/>
+  <circle cx="616" cy="340" r="3" fill="#C8E6C9"/>
+  <circle cx="640" cy="340" r="5" fill="#66BB6A"/>
+  <circle cx="664" cy="340" r="3" fill="#C8E6C9"/>
+  <circle cx="684" cy="340" r="3" fill="#C8E6C9"/>
+  <circle cx="704" cy="340" r="3" fill="#C8E6C9"/>
+  <circle cx="724" cy="340" r="3" fill="#C8E6C9"/>
+  <circle cx="744" cy="340" r="3" fill="#C8E6C9"/>
+
+  <!-- Feature pills -->
+  <rect x="298" y="360" rx="19" ry="19" width="148" height="37" fill="#E8F5E9" stroke="#66BB6A" stroke-width="1.5" filter="url(#cardshadow)"/>
+  <text x="372" y="385" font-size="16" text-anchor="middle" fill="#2E7D32">🧪 Lab Mode</text>
+
+  <rect x="460" y="360" rx="19" ry="19" width="155" height="37" fill="#F3E5F5" stroke="#AB47BC" stroke-width="1.5" filter="url(#cardshadow)"/>
+  <text x="538" y="385" font-size="16" text-anchor="middle" fill="#6A1B9A">📅 Daily Quiz</text>
+
+  <rect x="629" y="360" rx="19" ry="19" width="138" height="37" fill="#FFF8E1" stroke="#FFB300" stroke-width="1.5" filter="url(#cardshadow)"/>
+  <text x="698" y="385" font-size="16" text-anchor="middle" fill="#E65100">🏆 Badges</text>
+
+  <rect x="781" y="360" rx="19" ry="19" width="148" height="37" fill="#E3F2FD" stroke="#42A5F5" stroke-width="1.5" filter="url(#cardshadow)"/>
+  <text x="855" y="385" font-size="16" text-anchor="middle" fill="#0D47A1">🔊 Sound FX</text>
+
+  <!-- ═══ ELEMENT CIRCLES ═══ -->
+  <!-- Compound connector lines (drawn first, behind circles) -->
+  <line x1="80"  y1="455" x2="240" y2="455" stroke="#C8E6C9" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="560" y1="455" x2="720" y2="455" stroke="#C8E6C9" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="880" y1="455" x2="1040" y2="455" stroke="#C8E6C9" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- Compound formula labels -->
+  <text x="160"  y="447" font-size="14" font-weight="700" text-anchor="middle" fill="#388E3C">💧 H₂O</text>
+  <text x="640"  y="447" font-size="14" font-weight="700" text-anchor="middle" fill="#388E3C">🧂 NaCl</text>
+  <text x="960"  y="447" font-size="14" font-weight="700" text-anchor="middle" fill="#388E3C">💨 NH₃</text>
+
+  <!-- H — Sky Blue -->
+  <circle cx="80" cy="530" r="66" fill="#90CAF9" filter="url(#shadow)"/>
+  <circle cx="80" cy="530" r="63" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="3"/>
+  <text x="80" y="515" font-size="28" font-weight="800" text-anchor="middle" fill="white">H</text>
+  <text x="80" y="538" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.93)" font-family="'Malgun Gothic','Apple SD Gothic Neo',sans-serif">수소</text>
+  <text x="80" y="556" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.85)">U◡U ♥</text>
+
+  <!-- O — Coral Pink -->
+  <circle cx="240" cy="510" r="66" fill="#F48FB1" filter="url(#shadow)"/>
+  <circle cx="240" cy="510" r="63" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="3"/>
+  <text x="240" y="495" font-size="28" font-weight="800" text-anchor="middle" fill="white">O</text>
+  <text x="240" y="518" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.93)" font-family="'Malgun Gothic','Apple SD Gothic Neo',sans-serif">산소</text>
+  <text x="240" y="536" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.85)">●ˇ∀ˇ●</text>
+
+  <!-- C — Cool Gray -->
+  <circle cx="400" cy="535" r="66" fill="#B0BEC5" filter="url(#shadow)"/>
+  <circle cx="400" cy="535" r="63" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="3"/>
+  <text x="400" y="520" font-size="28" font-weight="800" text-anchor="middle" fill="white">C</text>
+  <text x="400" y="543" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.93)" font-family="'Malgun Gothic','Apple SD Gothic Neo',sans-serif">탄소</text>
+  <text x="400" y="561" font-size="11" text-anchor="middle" fill="rgba(255,255,255,0.85)">(=ㅅ=)💤</text>
+
+  <!-- Na — Butter Gold -->
+  <circle cx="560" cy="513" r="66" fill="#FFE082" filter="url(#shadow)"/>
+  <circle cx="560" cy="513" r="63" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="3"/>
+  <text x="560" y="498" font-size="28" font-weight="800" text-anchor="middle" fill="#7B6000">Na</text>
+  <text x="560" y="521" font-size="12" text-anchor="middle" fill="rgba(100,78,0,0.92)" font-family="'Malgun Gothic','Apple SD Gothic Neo',sans-serif">나트륨</text>
+  <text x="560" y="539" font-size="12" text-anchor="middle" fill="rgba(100,78,0,0.82)">★_★!</text>
+
+  <!-- Cl — Soft Green -->
+  <circle cx="720" cy="530" r="66" fill="#A5D6A7" filter="url(#shadow)"/>
+  <circle cx="720" cy="530" r="63" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="3"/>
+  <text x="720" y="515" font-size="28" font-weight="800" text-anchor="middle" fill="white">Cl</text>
+  <text x="720" y="538" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.93)" font-family="'Malgun Gothic','Apple SD Gothic Neo',sans-serif">염소</text>
+  <text x="720" y="556" font-size="11" text-anchor="middle" fill="rgba(255,255,255,0.85)">q(≧▽≦q)</text>
+
+  <!-- He — Pastel Violet -->
+  <circle cx="880" cy="510" r="66" fill="#CE93D8" filter="url(#shadow)"/>
+  <circle cx="880" cy="510" r="63" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="3"/>
+  <text x="880" y="495" font-size="28" font-weight="800" text-anchor="middle" fill="white">He</text>
+  <text x="880" y="518" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.93)" font-family="'Malgun Gothic','Apple SD Gothic Neo',sans-serif">헬륨</text>
+  <text x="880" y="536" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.85)">🎈(^▽^)</text>
+
+  <!-- N — Light Cyan -->
+  <circle cx="1040" cy="535" r="66" fill="#80DEEA" filter="url(#shadow)"/>
+  <circle cx="1040" cy="535" r="63" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="3"/>
+  <text x="1040" y="520" font-size="28" font-weight="800" text-anchor="middle" fill="white">N</text>
+  <text x="1040" y="543" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.93)" font-family="'Malgun Gothic','Apple SD Gothic Neo',sans-serif">질소</text>
+  <text x="1040" y="561" font-size="11" text-anchor="middle" fill="rgba(255,255,255,0.85)">(✿◡_◡)</text>
+
+  <!-- Fe — Terracotta -->
+  <circle cx="1200" cy="515" r="66" fill="#FFAB91" filter="url(#shadow)"/>
+  <circle cx="1200" cy="515" r="63" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="3"/>
+  <text x="1200" y="500" font-size="28" font-weight="800" text-anchor="middle" fill="white">Fe</text>
+  <text x="1200" y="523" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.93)" font-family="'Malgun Gothic','Apple SD Gothic Neo',sans-serif">철</text>
+  <text x="1200" y="541" font-size="11" text-anchor="middle" fill="rgba(255,255,255,0.85)">🤖[O_O]</text>
+
+  <!-- Atomic numbers (small, bottom-right of each circle) -->
+  <text x="130" y="576" font-size="10" font-weight="600" text-anchor="middle" fill="#78909C" opacity="0.7">1</text>
+  <text x="290" y="560" font-size="10" font-weight="600" text-anchor="middle" fill="#78909C" opacity="0.7">8</text>
+  <text x="450" y="585" font-size="10" font-weight="600" text-anchor="middle" fill="#78909C" opacity="0.7">6</text>
+  <text x="610" y="563" font-size="10" font-weight="600" text-anchor="middle" fill="#78909C" opacity="0.7">11</text>
+  <text x="770" y="580" font-size="10" font-weight="600" text-anchor="middle" fill="#78909C" opacity="0.7">17</text>
+  <text x="930" y="560" font-size="10" font-weight="600" text-anchor="middle" fill="#78909C" opacity="0.7">2</text>
+  <text x="1090" y="585" font-size="10" font-weight="600" text-anchor="middle" fill="#78909C" opacity="0.7">7</text>
+  <text x="1250" y="565" font-size="10" font-weight="600" text-anchor="middle" fill="#78909C" opacity="0.7">26</text>
+
+  <!-- Bottom brand text -->
+  <text x="640" y="632" font-size="13" text-anchor="middle" fill="#90A4AE" letter-spacing="1">github.com/jeiel85/element-friends</text>
+</svg>
